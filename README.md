@@ -3,14 +3,16 @@ Eine Sammlung von Tipps und Tricks zum Thema Grafikprogrammierung mit GDI+.
 
 ## Table of Contents
 
-- [Timer](#timer)
+- [Klassen / Ereignisse](#klassen--ereignisse)
+  - [Timer](#timer)
+  - [Graphics](#graphics)
+    - [Beispiel](#beispiel)
 - [Tipps und Tricks](#tipps-und-tricks)
   - [Bewegung animieren](#bewegung-animieren)
   - [Objekte mit Tasten steuern](#objekte-mit-tasten-steuern)
   - [Verhindern, dass ein Spieler aus dem Bild läuft](#verhindern-dass-ein-spieler-aus-dem-bild-läuft)
   - [Spiel pausieren](#spiel-pausieren)
-- [Klassen / Ereignisse](#klassen--ereignisse)
-  - [Timer](#timer)
+
 
 ## Klassen / Ereignisse
 ### Timer
@@ -21,7 +23,34 @@ Anschließend können wir
 - den Timer starten (`+ Start():void`) oder
 - stoppen (`+ Stop():void`) oder
 - den Zustand abfragen. (`+ Enabled{ get; set; }: bool`) (Standard ist ausgeschaltet: `enabled = false`)
+### Graphics
 
+Die [`System.Drawing`.`Graphics`](https://learn.microsoft.com/de-de/dotnet/api/system.drawing.graphics?view=net-6.0) Klasse ist eine zentrale Komponente in der GDI+ (Graphics Device Interface) Grafikbibliothek von .NET. Sie bietet eine umfangreiche Palette von Methoden und Eigenschaften zum Zeichnen von Grafiken auf verschiedenen Oberflächen, wie z. B. auf einem Formular, einem Bitmap-Bild, einem Drucker und mehr.
+
+
+
+#### Beispiel
+
+Hier ist ein einfaches Beispiel, das zeigt, wie man mit der `Graphics`-Klasse ein Rechteck und einen Kreis auf einem Formular zeichnet:
+
+```csharp
+private void FrmFrogger_Paint(object sender, PaintEventArgs e)
+{
+    // Erstelle ein Graphics-Objekt aus dem PaintEventArgs
+    Graphics g = e.Graphics;
+
+    // Zeichne ein Rechteck mit blauem Rand und grüner Füllung
+    Rectangle rect = new Rectangle(50, 50, 100, 100);
+    Pen pen = new Pen(Color.Blue, 2);
+    Brush brush = new SolidBrush(Color.Green);
+    g.DrawRectangle(pen, rect);
+    g.FillRectangle(brush, rect);
+
+    // Zeichne einen roten Kreis mit Mittelpunkt (200, 200) und Radius 50
+    Pen redPen = new Pen(Color.Red, 2);
+    g.DrawEllipse(redPen, 150, 150, 100, 100);
+}
+```
 
 
 ## Tipps und Tricks
