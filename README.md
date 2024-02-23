@@ -1,6 +1,15 @@
 # GDI+
 Eine Sammlung von Tipps und Tricks zum Thema Grafikprogrammierung mit GDI+.
 
+## Table of Contents
+
+- [Timer](#timer)
+- [Tipps und Tricks](#tippsUndTricks)
+- [Bewegung animieren](#BewegungenAnimieren)
+- [Objekte mit Tasten steuern](#objekteMitTastenSteuern)
+- [Verhindern, dass ein Spieler aus dem Bild läuft](#VerhindernDassEinSpielerAusDemBildLäuft)
+- [Spiel pausieren](#SpielPausieren)
+
 ## Klassen / Ereignisse
 ### Timer
 Ein Timer führt in regelmäßigen Abständen ein `Tick`-Event aus. Der [`System.Windows.Forms`.`Timer`](https://learn.microsoft.com/de-de/dotnet/api/system.windows.forms.timer?view=windowsdesktop-8.0&viewFallbackFrom=net-6.0) kann über die Toolbox auf die GUI gezogen werden. 
