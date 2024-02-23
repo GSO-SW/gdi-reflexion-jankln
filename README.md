@@ -5,8 +5,9 @@ Eine Sammlung von Tipps und Tricks zum Thema Grafikprogrammierung mit GDI+.
 
 - [Klassen / Ereignisse](#klassen--ereignisse)
   - [Timer](#timer)
+    - [Beispiel Timer](#beispiel-timer)
   - [Graphics](#graphics)
-    - [Beispiel](#beispiel)
+    - [Beispiel Graphics](#beispiel-graphics)
 - [Tipps und Tricks](#tipps-und-tricks)
   - [Bewegung animieren](#bewegung-animieren)
   - [Objekte mit Tasten steuern](#objekte-mit-tasten-steuern)
@@ -23,13 +24,59 @@ Anschließend können wir
 - den Timer starten (`+ Start():void`) oder
 - stoppen (`+ Stop():void`) oder
 - den Zustand abfragen. (`+ Enabled{ get; set; }: bool`) (Standard ist ausgeschaltet: `enabled = false`)
+
+#### Beispiel Timer
+
+Hier ist ein einfaches Beispiel, das zeigt, wie man den Timer in C# verwendet:
+
+```csharp
+using System;
+using System.Windows.Forms;
+
+namespace TimerExample
+{
+    public partial class Form1 : Form
+    {
+        Timer timer;
+
+        public Form1()
+        {
+            InitializeComponent();
+
+            // Timer erstellen
+            timer = new Timer();
+            timer.Interval = 1000; // 1000 Millisekunden = 1 Sekunde
+            timer.Tick += Timer_Tick;
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            // Diese Methode wird bei jedem Tick-Ereignis des Timers aufgerufen
+            label1.Text = DateTime.Now.ToString(); // Aktuelle Zeit aktualisieren
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            // Timer starten
+            timer.Start();
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            // Timer stoppen
+            timer.Stop();
+        }
+    }
+}
+```
+
 ### Graphics
 
 Die [`System.Drawing`.`Graphics`](https://learn.microsoft.com/de-de/dotnet/api/system.drawing.graphics?view=net-6.0) Klasse ist eine zentrale Komponente in der GDI+ (Graphics Device Interface) Grafikbibliothek von .NET. Sie bietet eine umfangreiche Palette von Methoden und Eigenschaften zum Zeichnen von Grafiken auf verschiedenen Oberflächen, wie z. B. auf einem Formular, einem Bitmap-Bild, einem Drucker und mehr.
 
 
 
-#### Beispiel
+#### Beispiel Graphics
 
 Hier ist ein einfaches Beispiel, das zeigt, wie man mit der `Graphics`-Klasse ein Rechteck und einen Kreis auf einem Formular zeichnet:
 
