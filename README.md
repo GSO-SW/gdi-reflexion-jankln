@@ -96,6 +96,16 @@ private void FrmFrogger_Paint(object sender, PaintEventArgs e)
     // Zeichne einen roten Kreis mit Mittelpunkt (200, 200) und Radius 50
     Pen redPen = new Pen(Color.Red, 2);
     g.DrawEllipse(redPen, 150, 150, 100, 100);
+
+    //Befüllen aktuelles Hindernis Beispiel
+     foreach (Hindernis aktuellesHindernis in alleHindernisse){
+        e.Graphics.FillRectangle(
+         aktuellesHindernis.Brush,
+         aktuellesHindernis.X,
+         aktuellesHindernis.Y,
+         aktuellesHindernis.Width,
+         aktuellesHindernis.Height);
+ }
 }
 ```
 
