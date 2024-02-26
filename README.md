@@ -1,5 +1,5 @@
 # GDI+
-Eine Sammlung von Tipps und Tricks zum Thema Grafikprogrammierung mit GDI+.
+Eine Sammlung von Tipps und Tricks zum Thema Grafikprogrammierung mit GDI+. Tick Methode erweitern(bewegung animieren)!!!
 
 ## Table of Contents
 
