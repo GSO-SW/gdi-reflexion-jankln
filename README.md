@@ -9,10 +9,12 @@ Eine Sammlung von Tipps und Tricks zum Thema Grafikprogrammierung mit GDI+.
   - [Graphics](#graphics)
     - [Beispiel Graphics](#beispiel-graphics)
 - [Tipps und Tricks](#tipps-und-tricks)
+  - [Benötigte Variablen](#benötigte-variablen)
   - [Bewegung animieren](#bewegung-animieren)
   - [Objekte mit Tasten steuern](#objekte-mit-tasten-steuern)
   - [Verhindern, dass ein Spieler aus dem Bild läuft](#verhindern-dass-ein-spieler-aus-dem-bild-läuft)
   - [Spiel pausieren](#spiel-pausieren)
+   
 
 
 ## Klassen / Ereignisse
@@ -115,6 +117,14 @@ Ergänzen Sie hier die notwendigen Code-Ausschnitte, um zu zeigen, wie man es ma
 - Sie können [CodeBlöcke mit Syntax-Highlighting](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks#syntax-highlighting) einsetzen
 - Wird es zu unübersichtlich? Sie können auch Unterordner mit Beispiel-Code anlegen und auf die entsprechenden Dateien verlinken. [Inspiration](https://github.com/gsoTH/flaskShowcase/tree/master/datenbanken).
 - Die folgende Liste kann gerne ergänzt werden :)
+
+### Benötigte Variablen
+
+```csharp
+breite = this.ClientSize.Width;
+hoehe = this.ClientSize.Height;
+```
+
 
 ### Bewegung animieren
 Um Bewegungen zu animieren, können Sie die `tmrGameTick_Tick` Methode verwenden, die durch den Timer-Event ausgelöst wird. Innerhalb dieser Methode können Sie die Positionen der Objekte aktualisieren und die `Refresh` Methode aufrufen, um das Fenster neu zu zeichnen und die Animation darzustellen. .Die x- und y-Werte müssen entsprechend angepasst werden, um das Objekt zu bewegen. Dann kann mit den neuen x und y Werten ein neues Objekt erstellt werden und dieses kann nur Liste alleObjekte hinzugefügt werden.
