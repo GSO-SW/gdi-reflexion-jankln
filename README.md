@@ -1,5 +1,5 @@
 # GDI+
-Eine Sammlung von Tipps und Tricks zum Thema Grafikprogrammierung mit GDI+. Tick Methode erweitern(bewegung animieren)!!!
+Eine Sammlung von Tipps und Tricks zum Thema Grafikprogrammierung mit GDI+.
 
 ## Table of Contents
 
@@ -107,7 +107,25 @@ Ergänzen Sie hier die notwendigen Code-Ausschnitte, um zu zeigen, wie man es ma
 - Die folgende Liste kann gerne ergänzt werden :)
 
 ### Bewegung animieren
-Um Bewegungen zu animieren, können Sie die `tmrGameTick_Tick` Methode verwenden, die durch den Timer-Event ausgelöst wird. Innerhalb dieser Methode können Sie die Positionen der Objekte aktualisieren und die `Refresh` Methode aufrufen, um das Fenster neu zu zeichnen und die Animation darzustellen.
+Um Bewegungen zu animieren, können Sie die `tmrGameTick_Tick` Methode verwenden, die durch den Timer-Event ausgelöst wird. Innerhalb dieser Methode können Sie die Positionen der Objekte aktualisieren und die `Refresh` Methode aufrufen, um das Fenster neu zu zeichnen und die Animation darzustellen. .Die x- und y-Werte müssen entsprechend angepasst werden, um das Objekt zu bewegen. Dann kann mit den neuen x und y Werten ein neues Objekt erstellt werden und dieses kann nur Liste alleObjekte hinzugefügt werden.
+
+
+```csharp
+private void tmrGameTick_Tick(object sender, EventArgs e)
+{
+    alleHindernisse.Add(new Hindernis(breite, yWertDerBahn, 60, hoeheJeBereich, hindernisGeschwindigkeit, Color.Red));
+    
+
+    foreach (Hindernis aktuellesHindernis in alleHindernisse)
+    {
+        aktuellesHindernis.Move();
+        // .Move = X und Y Werte ändern
+    }
+
+    this.Refresh();
+
+}
+```
 
 ### Objekte mit Tasten steuern
 Um Objekte mithilfe von Tasten zu steuern, können Sie den `FrmFrogger_KeyDown` Event verwenden. In diesem Event können Sie die gedrückte Taste überprüfen und entsprechend die Position des Spielers anpassen.
